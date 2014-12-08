@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ! Copyright (c) Bedas
+ ! All rights reserved.
+ ! http://bedas.com.tr
+ ! logback.p.vm.xml
+-->
+<configuration>
+	<appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%-5level %C{3}.%M %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>C:\\Users\\Akin\\deneme\\git\\ServiceProvider\\target/logs/ServiceProvider-v.1.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>C:\\Users\\Akin\\deneme\\git\\ServiceProvider\\target/logs/ServiceProvider-v.1.%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>5</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>1MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>[%d{ISO8601}] [%-5level] [%X{session_id}] [%X{login}] [%C{3}.%M] %m%n</pattern>
+		</encoder>
+	</appender>
+
+
+	<!-- log the param value in the prepared statement and the query result! (log level must be TRACE to enable it) -->
+	<!--<logger name="org.hibernate.type"> -->
+	<!--<level value="trace" /> -->
+	<!-- <appender-ref ref="File"/> -->
+	<!--</logger> -->
+
+	<logger name="org.springframework.security" level="warn" />
+	<logger name="org.apache.commons" level="warn" />
+	<logger name="org.apache.commons.jexl2.JexlEngine" level="error" />
+	<logger name="org.springframework" level="warn" />
+	<logger name="org.springframework.beans.factory.support" level="warn" />
+
+	<logger name="LOG4J" level="INFO" />
+	<logger name="SLF4J" level="WARN" />
+	<logger name="JCL" level="INFO" />
+
+	<logger name="edu.gsu.servicep" level="DEBUG" />
+
+	<root level="warn">
+		<appender-ref ref="Console" />
+		<appender-ref ref="File" />
+	</root>
+
+</configuration>

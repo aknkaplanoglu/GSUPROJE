@@ -1,0 +1,1 @@
+[2014-11-17 16:29:12,987] [WARN ] [] [] [o.s.d.m.c.m.BasicMongoPersistentProperty.<init>] Customizing field name for id property not allowed! Custom name will not be considered!
