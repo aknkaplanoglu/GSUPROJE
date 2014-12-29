@@ -1,6 +1,7 @@
 package edu.gsu.servicep.dto;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -23,9 +24,18 @@ public class UserDto {
 	private String idMongo;
 	private List<BigDecimal> location;
 	private String role;
+	private Date zamanBilgisi;
 	
 	
 	
+	
+	
+	public Date getZamanBilgisi() {
+		return zamanBilgisi;
+	}
+	public void setZamanBilgisi(Date zamanBilgisi) {
+		this.zamanBilgisi = zamanBilgisi;
+	}
 	public List<BigDecimal> getLocation() {
 		return location;
 	}
