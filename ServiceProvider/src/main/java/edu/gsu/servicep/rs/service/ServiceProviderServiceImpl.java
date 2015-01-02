@@ -15,7 +15,7 @@ public class ServiceProviderServiceImpl implements ServiceProviderRsService {
 	UserMongoRepositoryService userMongoRepositoryService;
 
 	@Override
-	public boolean islogin(String username, String password) {
+	public String islogin(String username, String password) {
 
 		return userMongoRepositoryService.isLoginSuccesful(username, password);
 	}

@@ -1,8 +1,5 @@
 package edu.gsu.servicep.mongo.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -26,8 +23,7 @@ public class UserMongoRepositoryService {
 	@Inject
 	UserMongoRepository userMongoRepository;
 
-	public boolean isLoginSuccesful(String userName, String password) {
-		Boolean bool = false;
+	public String isLoginSuccesful(String userName, String password) {
 		Criteria criteria = Criteria.where("userName").is(userName);
 		Query query = new Query();
 		query.addCriteria(criteria);
@@ -35,11 +31,10 @@ public class UserMongoRepositoryService {
 		UserDto user = mongoTemplate.findOne(query, UserDto.class);
 		if (user != null) {
 			if (user.getPassword().equals(password)) {
-				bool = true;
+				return "t";
 			}
 		}
-
-		return bool;
+		return "f";
 	}
 
 	public boolean createNewUser(String userName, String password,

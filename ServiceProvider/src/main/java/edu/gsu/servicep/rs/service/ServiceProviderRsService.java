@@ -19,7 +19,7 @@ public interface ServiceProviderRsService {
 	@Path("islogin/{username}/{password}")
 	@Consumes("application/json; charset=UTF-8")
 	@Produces("application/json; charset=UTF-8")
-	public boolean islogin(@PathParam("username")String username,@PathParam("password")String password);
+	public String islogin(@PathParam("username")String username,@PathParam("password")String password);
 	
 	@GET
     @Path("createNewUser/{userName}/{password}/{telImei}")
