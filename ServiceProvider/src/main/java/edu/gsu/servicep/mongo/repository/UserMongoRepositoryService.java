@@ -1,5 +1,7 @@
 package edu.gsu.servicep.mongo.repository;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -35,6 +37,24 @@ public class UserMongoRepositoryService {
 			}
 		}
 		return "f";
+	}
+	
+	
+	public List<UserDto> bringUserNames(String userName) {
+		
+		
+		 Query query = new Query();
+			
+			userName = userName.replaceAll("İ", ".");
+			query.limit(10);
+			query.fields().include("userName").exclude("idMongo");
+			query.addCriteria(Criteria.where("name").regex(userName, "i"));
+			
+
+			List<UserDto> userNames = mongoTemplate.find(query,
+					UserDto.class);
+			return userNames;
+
 	}
 
 	public boolean createNewUser(String userName, String password,

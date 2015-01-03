@@ -22,7 +22,6 @@ public class UserDto {
 	
 	@Id
 	private String idMongo;
-	private List<BigDecimal> location;
 	private String role;
 	private Date zamanBilgisi;
 	

@@ -1,5 +1,7 @@
 package edu.gsu.servicep.rs.service;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -7,6 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
+import edu.gsu.servicep.dto.UserDto;
 import edu.gsu.servicep.request.dto.LoginWebDto;
 import edu.gsu.servicep.response.dto.LoginResponseWebDto;
 
@@ -26,6 +29,14 @@ public interface ServiceProviderRsService {
     @Consumes("application/json;charset=UTF-8")
     @Produces("application/json;charset=UTF-8")
     public boolean createNewUser(@PathParam("userName") String userName, @PathParam("password") String password, @PathParam("telImei") String telImei);
+	
+	
+	
+	@GET
+    @Path("bringUserNames/{userName}")
+    @Consumes("application/json;charset=UTF-8")
+    @Produces("application/json;charset=UTF-8")
+    public List<UserDto> bringUserNames(@PathParam("userName") String userName);
 	
 	
 	@POST

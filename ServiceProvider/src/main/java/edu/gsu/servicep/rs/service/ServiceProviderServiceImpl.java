@@ -1,9 +1,12 @@
 package edu.gsu.servicep.rs.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import edu.gsu.servicep.dto.UserDto;
 import edu.gsu.servicep.mongo.repository.UserMongoRepositoryService;
 import edu.gsu.servicep.request.dto.LoginWebDto;
 import edu.gsu.servicep.response.dto.LoginResponseWebDto;
@@ -37,6 +40,13 @@ public class ServiceProviderServiceImpl implements ServiceProviderRsService {
 	@Override
 	public void giveRole(String username, String password) {
 		userMongoRepositoryService.giveRole(username,password);
+	}
+
+	@Override
+	public List<UserDto> bringUserNames(String userName) {
+		
+		
+		return userMongoRepositoryService.bringUserNames(userName);
 	}
 
 }
