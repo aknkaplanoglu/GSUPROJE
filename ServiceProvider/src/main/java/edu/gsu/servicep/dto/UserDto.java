@@ -35,12 +35,6 @@ public class UserDto {
 	public void setZamanBilgisi(Date zamanBilgisi) {
 		this.zamanBilgisi = zamanBilgisi;
 	}
-	public List<BigDecimal> getLocation() {
-		return location;
-	}
-	public void setLocation(List<BigDecimal> location) {
-		this.location = location;
-	}
 	public String getRole() {
 		return role;
 	}
