@@ -43,8 +43,9 @@ public class ServiceProviderServiceImpl implements ServiceProviderRsService {
 	}
 
 	@Override
-	public void giveRole(String username, String password) {
-		userMongoRepositoryService.giveRole(username,password);
+	public String giveRole(String username, String password,String role) {
+		String giveRole = userMongoRepositoryService.giveRole(username,password,role);
+		return giveRole;
 	}
 
 	@Override
@@ -68,5 +69,6 @@ public class ServiceProviderServiceImpl implements ServiceProviderRsService {
 		return gpsSatalliteMongoRepoService.getLocationByDateAndUserName(mapRequest);
 		
 	}
+ 
 
 }

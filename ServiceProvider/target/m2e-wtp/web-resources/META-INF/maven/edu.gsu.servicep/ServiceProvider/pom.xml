@@ -109,11 +109,22 @@
 			<version>1.7.2</version>
 		</dependency>
 		<dependency>
-	<groupId>com.google.code.findbugs</groupId>
-	<artifactId>jsr305</artifactId>
-	<version>1.3.9</version>
-</dependency>
-		
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<version>1.3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.geocoder-java</groupId>
+			<artifactId>geocoder-java</artifactId>
+			<version>0.16</version>
+		</dependency>
+		<dependency>
+			<groupId>org.opensextant</groupId>
+			<artifactId>geodesy</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+
 		<!-- ~~~~~~ -->
 		<!-- LOGGER -->
 		<!-- ~~~~~~ -->
@@ -197,10 +208,10 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
-		
-		
-		
-		
+
+
+
+
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
@@ -270,13 +281,13 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
 			<version>${spring.data.mongodb.version}</version>
 		</dependency>
-		
+
 		<!-- ~~~~~~~~~~~~~~~ -->
 		<!-- Apache Cxf -->
 		<!-- ~~~~~~~~~~~~~~~ -->
@@ -300,7 +311,7 @@
 			<artifactId>cxf-rt-bindings-soap</artifactId>
 			<version>2.4.0</version>
 		</dependency>
-		
+
 
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>

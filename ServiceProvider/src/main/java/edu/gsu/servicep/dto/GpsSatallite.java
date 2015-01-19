@@ -21,9 +21,20 @@ public class GpsSatallite {
     private List<Double> location;
     private String userName;
     private Date locationTime;
+    private String tip;
+    
+    
 
 
-    public Date getLocationTime() {
+    public String getTip() {
+		return tip;
+	}
+
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+
+	public Date getLocationTime() {
         return locationTime;
     }
 

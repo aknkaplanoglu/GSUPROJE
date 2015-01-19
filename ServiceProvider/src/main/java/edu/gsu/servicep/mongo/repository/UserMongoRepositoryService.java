@@ -48,7 +48,7 @@ public class UserMongoRepositoryService {
 			userName = userName.replaceAll("İ", ".");
 			query.limit(10);
 			query.fields().include("userName").exclude("idMongo");
-			query.addCriteria(Criteria.where("name").regex(userName, "i"));
+			query.addCriteria(Criteria.where("userName").regex(userName, "i"));
 			
 
 			List<UserDto> userNames = mongoTemplate.find(query,
@@ -106,15 +106,26 @@ public class UserMongoRepositoryService {
 
 	}
 
-	public void giveRole(String username, String role) {
+	public String giveRole(String username, String password,String role) {
 
 		Criteria criteria = Criteria.where("userName").is(username);
-		Query query = new Query();
-		query.addCriteria(criteria);
-		Update update = new Update();
-		update.set("role", role);
-		mongoTemplate.updateMulti(query, update, UserDto.class);
-
+		Query query = new Query(criteria);
+		UserDto user = mongoTemplate.findOne(query, UserDto.class);
+		if (user == null) {
+			try {
+				UserDto newUser = new UserDto();
+				newUser.setUserName(username);
+				newUser.setPassword(password);
+				newUser.setRole(role);
+				userMongoRepository.save(newUser);
+				return "t";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return "f";
 	}
+	
+
 
 }

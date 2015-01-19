@@ -41,6 +41,7 @@ public interface ServiceProviderRsService {
     public List<UserDto> bringUserNames(@PathParam("userName") String userName);
 	
 	
+	
 	@POST
 	@Path("isloginWeb")
 	@Consumes("application/json; charset=UTF-8")
@@ -54,10 +55,10 @@ public interface ServiceProviderRsService {
 	public List<GpsSatallite> getLocationWeb(MapRequest mapRequest);
 	
 	@GET
-	@Path("giveRole/{username}/{password}")
+	@Path("giveRole/{username}/{password}/{role}")
 	@Consumes("application/json; charset=UTF-8")
 	@Produces("application/json; charset=UTF-8")
-	public void giveRole(@PathParam("username")String username,@PathParam("password")String role);
+	public String giveRole(@PathParam("username")String username,@PathParam("password")String password,@PathParam("role")String role);
 	
 	
 	@POST
